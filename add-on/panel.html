@@ -2,9 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="js/hashes.js"></script>
+    <title>String</title>
 </head>
 <body>
     <textarea id="input" rows="5" style="width:60%;resize: none;"></textarea>
+    <select id="type">
+        <option value="md5">md5</option>
+        <option value="sha1">sha1</option>
+        <option value="sha256">sha256</option>
+        <option value="base64encode">base64encode</option>
+        <option value="base64decode">base64decode</option>
+        <option value="urlencode">urlencode</option>
+        <option value="urldncode">urldncode</option>
+    </select>
     <textarea id="output" rows="5" style="width:60%;resize: none;"></textarea>
+    <script src="js/panel.js"></script>
 </body>
 </html>
