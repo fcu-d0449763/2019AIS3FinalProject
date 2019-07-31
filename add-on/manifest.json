@@ -27,6 +27,8 @@
     ],
 
     "permissions": [
-        "nativeMessaging"
+        "nativeMessaging",
+        "tabs",
+        "activeTab"
     ]
 }
