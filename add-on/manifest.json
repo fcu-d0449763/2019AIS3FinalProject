@@ -1,0 +1,32 @@
+{
+    "manifest_version": 2,
+    "name": "WEB toolbar",
+    "version": "0.1",
+    "description": "AIS3 2019 Web Group 5 Final Project",
+    "icons": {
+        "64": "icons/icon.png"
+    },
+
+    "browser_action": {
+        "default_icon": "icons/icon.png",
+        "default_title": "Toolbar",
+        "default_popup": "popup.html"
+    },
+
+    "devtools_page": "devtools-page.html",
+
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "js/main.js"
+            ]
+        }
+    ],
+
+    "permissions": [
+        "nativeMessaging"
+    ]
+}
