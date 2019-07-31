@@ -1,7 +1,7 @@
 var input, output, type;
 var MD5 = new Hashes.MD5;
-var SHA1 =  new Hashes.SHA1;
-var SHA256 =  new Hashes.SHA256;
+var SHA1 = new Hashes.SHA1;
+var SHA256 = new Hashes.SHA256;
 functions = {
     "md5": function(s) {
         return MD5.hex(s);
@@ -57,4 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
     type = document.querySelector("#type");
     input.addEventListener("keyup", convert);
     type.addEventListener("change", convert);
+    browser.tabs.query({currentWindow: true, active: true}).then(tabs => {
+        console.log(tabs);
+    });
 });
