@@ -23,7 +23,30 @@ functions = {
     },
     "urldncode": function(s) {
         return decodeURIComponent(s);
-    }
+    },
+    "ascii2hex": function(str) {
+        var arr = [];
+        for (var i = 0, l = str.length; i < l; i ++) {
+          var hex = Number(str.charCodeAt(i)).toString(16);
+          arr.push(hex);
+        }
+        return arr.join('');
+    },
+    "hex2ascii":function(s) {
+          var hex = s.toString();
+          var str = '';
+          for (var i = 0; i < hex.length; i += 2)
+              str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+          return str;
+      },
+    "ascii2Bin":function(str) {
+        var result = [];
+        for (var i = 0; i < str.length; i++) {
+          result.push(str.charCodeAt(i));
+        }
+        return result;
+      },
+
 }
 function convert(event) {
     output.value = functions[type.value](input.value);
