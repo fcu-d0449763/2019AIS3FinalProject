@@ -12,3 +12,18 @@ document.addEventListener("DOMContentLoaded", () => {
         e.addEventListener("click", googleHacking);
     });
 });
+
+function CTFAllSite(e) {
+    browser.tabs.query({currentWindow: true, active: true}).then(tabs => {
+        browser.tabs.create({
+            url: `/lazypage.html`
+        });
+    });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    buttons = document.querySelectorAll(".CTFAllSite");
+    buttons.forEach(e => {
+        e.addEventListener("click", CTFAllSite);
+    });
+});
