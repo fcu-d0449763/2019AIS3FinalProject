@@ -1,0 +1,8 @@
+/* *{
+    border: red solid 5px;
+} */
+
+#popup-body{
+    border: solid 10px transparent;
+    min-width: initial;
+}
