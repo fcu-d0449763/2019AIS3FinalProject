@@ -31,7 +31,11 @@ function convert(event) {
 document.addEventListener("DOMContentLoaded", () => {
     input = document.querySelector("#input");
     output = document.querySelector("#output");
-    type = document.querySelector("#type");
+    type = document.querySelector("#convert");
     input.addEventListener("keyup", convert);
     type.addEventListener("change", convert);
 });
+
+$('.menu .item').tab();
+$('.ui.dropdown').dropdown();
+$('.ui.accordion').accordion();

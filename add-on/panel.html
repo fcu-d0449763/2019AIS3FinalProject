@@ -3,20 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <script src="js/hashes.js"></script>
-    <title>String</title>
+    <title>Panel</title>
+    <link rel="stylesheet" href="css/panel.css">
+    <!-- semantic-ui -->
+    <script src="js/semanticUI/jquery-3.1.1.min.js" ></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="js/semanticUI/semantic.min.js" ></script>
 </head>
 <body>
-    <textarea id="input" rows="5" style="width:60%;resize: none;"></textarea>
-    <select id="type">
-        <option value="md5">md5</option>
-        <option value="sha1">sha1</option>
-        <option value="sha256">sha256</option>
-        <option value="base64encode">base64encode</option>
-        <option value="base64decode">base64decode</option>
-        <option value="urlencode">urlencode</option>
-        <option value="urldncode">urldncode</option>
-    </select>
-    <textarea id="output" rows="5" style="width:60%;resize: none;"></textarea>
+    <div class="ui top attached tabular menu">
+        <a class="active item" data-tab="Request">Request</a>
+        <a class="item" data-tab="Convert">Convert</a>
+        <a class="item" data-tab="Tools">Tools</a>
+        <a class="item" data-tab="Header Modifier">Header Modifier</a>
+        <a class="item" data-tab="Cookie Modifier">Cookie Modifier</a>
+    </div>
+    <div class="ui bottom attached active tab segment form" data-tab="Request">
+        <div id="url-container">
+            <div class="ui labeled input action fluid">
+                <div class="ui dropdown label">
+                    <div class="text">GET</div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                    <div class="item">GET</div>
+                    <div class="item">POST</div>
+                    <div class="item">PUT</div>
+                    <div class="item">CONNECT</div>
+                    <div class="item">HEAD</div>
+                    <div class="item">OPTION</div>
+                    <div class="item">DELETE</div>
+                    <div class="item">TRACE</div>
+                    </div>
+                </div>
+                <input type="text" placeholder="URL">
+                <button class="ui button primary">Send</button>
+            </div>
+            
+        </div>
+        <div class="ui accordion">
+            <div class="title">
+                <i class="icon dropdown"></i>
+                Header
+            </div>
+            <div class="content field transition hidden">
+                <textarea rows="2"></textarea>
+            </div>
+        </div>
+        <div class="ui accordion">
+            <div class="title">
+                <i class="icon dropdown"></i>
+                Body
+            </div>
+            <div class="content field transition hidden">
+                <textarea rows="2"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="ui bottom attached tab segment form" data-tab="Convert">
+        <div class="field">
+            <div class="ui selection dropdown">
+                <input type="hidden" name="convert" id="convert">
+                <i class="dropdown icon"></i>
+                <div class="default text">method</div>
+                <div class="menu">
+                    <div class="item" data-value="md5">md5</div>
+                    <div class="item" data-value="sha1">sha1</div>
+                    <div class="item" data-value="sha256">sha256</div>
+                    <div class="item" data-value="base64encode">base64encode</div>
+                    <div class="item" data-value="base64decode">base64decode</div>
+                    <div class="item" data-value="urlencode">urlencode</div>
+                    <div class="item" data-value="urldncode">urldncode</div>
+                </div>
+            </div>
+        </div>
+        <div class="ui placeholder segment">
+            <div class="ui two column stackable center aligned grid">
+                <div class="ui vertical divider">=></div>
+                <div class="middle aligned row">
+                <div class="column field">
+                    <textarea id="input" class="convert-text"></textarea>
+                </div>
+                <div class="column field">
+                    <textarea id="output" class="convert-text"></textarea>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui bottom attached tab segment form" data-tab="Tools">
+        <div class="field">
+            <div class="ui selection dropdown">
+                <input type="hidden" name="tool">
+                <i class="dropdown icon"></i>
+                <div class="default text">tool</div>
+                <div class="menu">
+                    <div class="item" >tool_1</div>
+                    <div class="item" >tool_2</div>
+                </div>
+            </div>
+        </div>
+        <div class="field">
+            <textarea id="" class="tool-text"></textarea>
+        </div>
+    </div>
+    <div class="ui bottom attached tab segment" data-tab="Header Modifier">
+        Header Modifier
+    </div>
+    <div class="ui bottom attached tab segment" data-tab="Cookie Modifier">
+        Cookie Modifier
+    </div>
+    
     <script src="js/panel.js"></script>
 </body>
+
 </html>
