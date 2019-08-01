@@ -1,4 +1,3 @@
-
 browser.devtools.panels.create(
     "Toolbar",              // title
     "icons/icon.png",       // icon
