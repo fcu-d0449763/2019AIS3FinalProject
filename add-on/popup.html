@@ -8,19 +8,169 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
     <script src="js/semanticUI/semantic.min.js" ></script>
 </head>
-<body id="popup-body">
-    <h3 class="ui header">Google Hacking</h3>
-    <div class="ui vertical labeled icon buttons">
-        <button type="button" value="pdf" class="hack ui button grey">
-                <i class="file pdf outline icon"></i>PDF</button>
-        <button type="button" value="doc" class="hack ui button grey">
-                <i class="file alternate outline icon"></i>DOC</button>
-        <!-- 
-            Todo: add filetype.
-        -->
-        <button type="button" value="Lazypage" class="CTFAllSite ui button grey">
-                <i class="paperclip icon"></i>Lazypage</button>
-     </div>
+<body>
+    <h3 class="ui header">Google helper & Links</h3>
+
+    <div class="ui styled fluid accordion">
+        <div class="title">
+            <i class="dropdown icon"></i>
+            Google helper
+        </div>
+        <div class="content">
+            <p>Searching in this site</p>
+            <div class="ui action input fluid">
+                <input type="text" placeholder="blank for everything" id="query">
+                <select class="ui compact search selection dropdown" id="query-type">
+                    <option selected value="all">All</option>
+                    <option value="pdf">PDF</option>
+                    <option value="doc">DOC</option>
+                    <option value="php">PHP</option>
+                    <option value="jpg">JPG</option>
+                    <option value="png">PNG</option>
+                </select>
+                <div class="ui button primary" id="search">
+                    <i class="search icon"></i>
+                </div>
+            </div>
+        </div>
+        <div class="title">
+            <i class="dropdown icon"></i>
+            Links
+        </div>
+        <div class="content">
+            <p>Other useful link</p>
+            <div class="accordion">
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                    Whois Lookup
+                </div>
+                <div class="content">
+                    <div class="ui vertical menu">
+                        <a class="item" target="_blank" href="https://whois.icann.org">ICANN WHOIS</a>
+                        <a class="item" target="_blank" href="https://whois.domaintools.com/">DomainTools</a>
+                        <a class="item" target="_blank" href="https://who.is/">Who.is</a>
+                        <a class="item" target="_blank" href="http://www.alexa.com/siteinfo">Alexa Whois</a>
+                        <a class="item" target="_blank" href="http://www.w3snoop.com/">W3Snoop</a>
+                        <a class="item" target="_blank" href="http://www.ipvoid.com/whois/">IPvoid Whois</a>
+                    </div>
+                </div>
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                    Reverse IP
+                </div>
+                <div class="content">
+                    <div class="ui vertical menu">
+                        <a class="item" target="_blank" href="https://reverseip.domaintools.com/">DomainTools</a>
+                        <a class="item" target="_blank" href="http://viewdns.info/reverseip/">ViewDNS</a>
+                        <a class="item" target="_blank" href="http://www.yougetsignal.com/tools/web-sites-on-web-server/">YouGetSignal</a>
+                    </div>
+                </div>
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                    Webpage Cache 
+                </div>
+                <div class="content">
+                    <div class="ui vertical menu">
+                        <a class="item" target="_blank" href="http://webcache.googleusercontent.com/search?q=cache:example.com">Google Cache</a>
+                        <a class="item" target="_blank" href="https://archive.fo/">archive.today</a>
+                        <a class="item" target="_blank" href="https://web.archive.org/">Internet Archive WayBack Machine</a>
+                    </div>
+                </div>
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                    IP Scan
+                </div>
+                <div class="content">
+                    <div class="ui vertical menu">
+                        <a class="item" target="_blank"href="https://www.virustotal.com/gui/home/url">VirusTotal</a>
+                        <a class="item" target="_blank"href="http://www.ipvoid.com/ip-blacklist-check/">IPVoid</a>
+                        <a class="item" target="_blank" href="https://www.metadefender.com/#!/submit-ip">Metadefender</a>
+                    </div>
+                </div>
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                    URL Scan
+                </div>
+                <div class="content">
+                    <div class="ui vertical menu">
+                        <a class="item" target="_blank" href="https://www.virustotal.com/gui/home/url">VirusTotal</a>
+                        <a class="item" target="_blank" href="http://www.urlvoid.com/">URLVoid</a>
+                        <a class="item" target="_blank" href="https://www.phishtank.com/">PhishTank</a>
+                        <a class="item" target="_blank" href="https://www.siteadvisor.com/">McAfee&#39;s WebAdvisor</a>
+                        <a class="item" target="_blank" href="https://www.trustedsource.org">McAfee&#39;s TrustedSource</a>
+                        <a class="item" target="_blank" href="https://global.sitesafety.trendmicro.com/index.php">TrendMicro&#39;s SiteSafetyCenter</a>
+                        <a class="item" target="_blank" href="https://safeweb.norton.com/">Norton&#39;s SafeWeb</a>
+                        <a class="item" target="_blank" href="https://www.google.com/transparencyreport/safebrowsing/diagnostic/index.html">Google&#39;s SafeBrowsing</a>
+                        <a class="item" target="_blank" href="http://trafficlight.bitdefender.com/info?url=">BitDefender&#39;s TrafficLight</a>
+                        <a class="item" target="_blank" href="http://www.avgthreatlabs.com/en-in/website-safety-reports/">AVG&#39;s ThreatLabs</a>
+                        <a class="item" target="_blank" href="https://app.upguard.com/webscan">UpGuard&#39;s WebScan</a>
+                        <a class="item" target="_blank" href="https://www.mywot.com/en/scorecard">WOT</a>
+                        <a class="item" target="_blank" href="https://talosintelligence.com/reputation_center">Cisco&#39;s Talos Intelligence</a>
+                        <a class="item" target="_blank" href="https://quttera.com/">Quttera</a>
+                        <a class="item" target="_blank" href="https://app.webinspector.com/">Comodo&#39;s WebInspector</a>
+                        <a class="item" target="_blank" href="https://urlscan.io/">urlscan.io</a>
+                        <a class="item" target="_blank" href="https://sitecheck.sucuri.net/">Sucuri&#39;s Sitecheck</a>
+                        <a class="item" target="_blank" href="http://zulu.zscaler.com/">Zscaler&#39;s Zulu</a>
+                        <a class="item" target="_blank" href="http://www.spamhaus.org/lookup/">Spamhaus</a>
+                        <a class="item" target="_blank" href="https://www.scumware.org/report/">Scumware</a>
+                        <a class="item" target="_blank" href="http://urlquery.net/">URLQuery</a>
+                        <a class="item" target="_blank" href="https://sitereview.bluecoat.com/sitereview.jsp">Bluecoat&#39;s WebPulse</a>
+                        <a class="item" target="_blank" href="http://www.surbl.org/surbl-analysis">SURBL</a>
+                        <a class="item" target="_blank" href="http://www.brightcloud.com/tools/url-ip-lookup.php">Brightcloud&#39;s WebRoot</a>
+                        <a class="item" target="_blank" href="https://www.foregenix.com/scan">Foregenix</a>
+                        <a class="item" target="_blank" href="http://www.fortiguard.com/webfilter?q=">FortiGuard Labs</a>
+                        <a class="item" target="_blank" href="http://online.us.drweb.com">Dr.Web&#39;s URL Scan</a>
+                        <a class="item" target="_blank" href="http://www.cyren.com/security-center/url-category-check">Cyren</a>
+                    </div>
+                </div>
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                    File Scan
+                </div>
+                <div class="content">
+                    <div class="ui vertical menu">
+                        <a class="item" target="_blank" href="https://www.virustotal.com/gui/home/upload">VirusTotal</a>
+                        <a class="item" target="_blank" href="https://www.metadefender.com/#!/scan-file">MetaDefender</a>
+                        <a class="item" target="_blank" href="https://virusscan.jotti.org/en-US/scan-file">Jotti&#39;s Malware Scan</a>
+                        <a class="item" target="_blank" href="http://www.virscan.org/">VirSCAN</a>
+                        <a class="item" target="_blank" href="https://virusdesk.kaspersky.com/">Kaspersky&#39;s VirusDesk</a>
+                        <a class="item" target="_blank" href="http://scanthis.net/">ByteLabs&#39;s scanthis</a>
+                        <a class="item" target="_blank" href="http://www.threatexpert.com/filescan.aspx">ThreatExpert</a>
+                        <a class="item" target="_blank" href="https://www.microsoft.com/en-us/wdsi/filesubmission">Microsoft&#39;s Security Portal</a>
+                    </div>
+                </div>
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                    SSL Check
+                </div>
+                <div class="content">
+                    <div class="ui vertical menu">
+                        <a class="item" target="_blank" href="https://cryptoreport.websecurity.symantec.com/checker/">Symantec CryptoReport</a>
+                        <a class="item" target="_blank" href="https://sslanalyzer.comodoca.com/">COMODO SSL Analyzer</a>
+                        <a class="item" target="_blank" href="https://www.ssllabs.com/ssltest/">Qualys&#39;s SSL Lab</a>
+                        <a class="item" target="_blank" href="https://ssltools.godaddy.com/views/certChecker">GoDaddy&#39;s Certificate Checker</a>
+                        <a class="item" target="_blank" href="https://mxtoolbox.com/HTTPSLookup.aspx">MxToolBox&#39;s SSL Check</a>
+                        <a class="item" target="_blank" href="https://community.spiceworks.com/tools/ssl-check/">Spiceworks&#39;s SSL Checker</a>
+                        <a class="item" target="_blank" href="https://www.htbridge.com/ssl/">High-Tech Bridge&#39;s SSL/TLS Test</a>
+                        <a class="item" target="_blank" href="https://www.wormly.com/test_ssl">Wormly&#39;s SSL Tester</a>
+                        <a class="item" target="_blank" href="https://www.geocerts.com/ssl_checker">GeoCerts&#39;s SSL Checker</a>
+                        <a class="item" target="_blank" href="https://www.sslshopper.com/ssl-checker.html">SSL Shopper</a>
+                        <a class="item" target="_blank" href="https://certlogik.com/ssl-checker/">CertLogik&#39;s SSL Checker</a>
+                        <a class="item" target="_blank" href="https://www.rapidsslonline.com/ssl-tools/ssl-checker.php">RapidSSLonline&#39;s SSL Checker</a>
+                    </div>
+                </div>
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                    Google hacking
+                </div>
+                <div class="content">
+                    <div class="ui vertical menu">
+                        <a class="item" target="_blank" href="https://www.exploit-db.com/google-hacking-database">google-hacking-database</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="js/popup.js"></script>
 </body>
 </html>

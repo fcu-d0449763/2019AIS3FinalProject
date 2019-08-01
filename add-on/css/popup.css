@@ -2,7 +2,8 @@
     border: red solid 5px;
 } */
 
-#popup-body{
+body{
     border: solid 10px transparent;
-    min-width: initial;
+    min-width: initial !important;
+    width: 24em;
 }
