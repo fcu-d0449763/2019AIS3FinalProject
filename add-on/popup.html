@@ -2,15 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>popup</title>
     <link rel="stylesheet" href="css/popup.css">
+    <script src="js/semanticUI/jquery-3.1.1.min.js" ></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="js/semanticUI/semantic.min.js" ></script>
 </head>
-    <input type="button" value="pdf" class="hack"></br>
-    <input type="button" value="doc" class="hack"></br>
-    <!-- 
-        Todo: add filetype.
-     -->
-    <input type="button" value="Lazypage" class="CTFAllSite">
-
+<body id="popup-body">
+    <h3 class="ui header">Google Hacking</h3>
+    <div class="ui vertical labeled icon buttons">
+        <button type="button" value="pdf" class="hack ui button grey">
+                <i class="file pdf outline icon"></i>PDF</button>
+        <button type="button" value="doc" class="hack ui button grey">
+                <i class="file alternate outline icon"></i>DOC</button>
+        <!-- 
+            Todo: add filetype.
+        -->
+        <button type="button" value="Lazypage" class="CTFAllSite ui button grey">
+                <i class="paperclip icon"></i>Lazypage</button>
+     </div>
     <script src="js/popup.js"></script>
 </body>
 </html>
