@@ -14,12 +14,13 @@
     <div class="ui top attached tabular menu">
         <a class="active item" data-tab="Request">Request</a>
         <a class="item" data-tab="Convert">Convert</a>
+        <a class="item" data-tab="Payloads">Payloads</a>
         <a class="item" data-tab="Tools">Tools</a>
         <a class="item" data-tab="Header Modifier">Header Modifier</a>
         <a class="item" data-tab="Cookie Modifier">Cookie Modifier</a>
         <a class="item" data-tab="Show All Comment">Show All Comment</a>
     </div>
-    <div class="ui bottom attached active tab segment form" data-tab="Request">
+    <div class="ui bottom attached tab segment form active" data-tab="Request">
         <div id="url-container">
             <div class="ui labeled input action fluid">
                 <div class="ui dropdown label">
@@ -60,6 +61,7 @@
             </div>
         </div>
     </div>
+
     <div class="ui bottom attached tab segment form" data-tab="Convert">
         <div class="field">
             <div class="ui selection dropdown" id="convertdropdown">
@@ -77,19 +79,22 @@
                 </div>
             </div>
         </div>
-        <div class="ui placeholder segment">
-            <div class="ui two column stackable center aligned grid">
-                <div class="ui vertical divider">=></div>
-                <div class="middle aligned row">
-                <div class="column field">
+        <div class="ui placeholder segment convert-text-container">
+            <div class="ui two column stackable very relaxed grid">
+                <div class="ui vertical divider">
+                    <i class="angle double right icon"></i>
+                </div>
+                <div class="column">
                     <textarea id="input" class="convert-text"></textarea>
                 </div>
-                <div class="column field">
+                <div class="column">
                     <textarea id="output" class="convert-text"></textarea>
-                </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="ui bottom attached tab segment form" data-tab="Payloads">
+        Payloads
     </div>
     <div class="ui bottom attached tab segment form" data-tab="Tools">
         <div class="field">
@@ -103,9 +108,7 @@
                 </div>
             </div>
         </div>
-        <div class="field">
-            <textarea id="" class="tool-text"></textarea>
-        </div>
+        <textarea class="tool-text"></textarea>
     </div>
     <div class="ui bottom attached tab segment" data-tab="Header Modifier">
         Header Modifier

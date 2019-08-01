@@ -7,3 +7,36 @@ body{
 .tab.segment{
     flex-grow: 1;
 }
+.tab.segment.active{
+    display:flex !important;
+    flex-direction: column;
+}
+
+.convert-text{
+    max-width: initial !important;
+    max-height: initial !important;
+    resize: none !important;
+    flex-grow: 1;
+    height: initial !important;
+}
+
+.convert-text-container{
+    min-height: initial !important;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0 !important;
+}
+.convert-text-container .grid{
+    flex-grow: 1;
+    display: flex;
+}
+.convert-text-container .grid>.column{
+    flex-grow: 1;
+    display: flex !important;
+}
+
+.tool-text{
+    flex-grow: 1;
+    resize: none !important;
+}
