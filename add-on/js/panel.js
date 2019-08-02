@@ -63,10 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
     type = document.querySelector("#convert");
     input.addEventListener("keyup", convert);
     type.addEventListener("change", convert);
-
-    browser.tabs.query({currentWindow: true, active: true}).then(tabs => {
-        console.log(tabs);
-    });
 });
 
 $('.menu .item').tab();
