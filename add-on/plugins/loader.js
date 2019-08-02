@@ -1,13 +1,14 @@
 var portToBackground = browser.runtime.connect({ name: "WT_loader"})
 
 // send to background
-document.getElementById("plugins").addEventListener("change", () => {
-    let plugin = document.getElementById("plugins");
-    console.log("Sending: " + plugin.value);
-    browser.runtime.sendMessage(plugin.value);
+document.querySelector("#tool").addEventListener("change", () => {
+    let mode = document.querySelector("#tool").value;
+    console.log("Sending: " + mode);
+    browser.runtime.sendMessage(mode);
 });
 
 // recive from background
 portToBackground.onMessage.addListener(message => {
-    document.getElementById("output").value = message;
+    response = JSON.parse(message);
+    document.getElementById("tool-output").value = response.body;
 });
