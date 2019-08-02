@@ -13,4 +13,11 @@ portToBackground.onMessage.addListener(message => {
     document.getElementById("tool-output").value = response.body;
 });
 
-
+function loading(){
+    $('.tool-text-container').append($('<div class="ui active loader tool-text-loader"></div>'));
+    $('.tool-select').addClass('disabled');
+}
+function finish(){
+    $('.tool-text-loader').remove();
+    $('.tool-select').removeClass('disabled');
+}
