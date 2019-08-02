@@ -3,6 +3,14 @@ $('.ui.dropdown').dropdown();
 //$('#convertdropdown').dropdown('set selected', 'md5');
 $('.ui.accordion').accordion();
 
+function getComment() {
+    port.postMessage({
+        action: "getComment",
+        target: "content",
+        tabId: tabId
+    });
+}
+
 port.onMessage.addListener(message => {
     switch (message.action) {
         case "sendComment":
@@ -12,6 +20,10 @@ port.onMessage.addListener(message => {
                 )
             );
             break;
+
+        case "update":
+            comment.empty();
+            getComment();
     }
 });
 
@@ -20,8 +32,4 @@ port.postMessage({
     tabId: tabId
 });
 
-port.postMessage({
-    action: "getComment",
-    target: "content",
-    tabId: tabId
-});
+getComment();

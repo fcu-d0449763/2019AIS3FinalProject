@@ -97,6 +97,21 @@ browser.runtime.onConnect.addListener(port => {
     });
 });
 
+browser.tabs.onUpdated.addListener((tabId, changeInfo, tabInfo) => {
+  if (changeInfo.status === "complete") {
+    var conn = connections[tabId]["panel"];
+    if (conn) {
+      conn.postMessage({
+          action: "update",
+          target: "panel"
+      });
+    }
+  }
+},
+{
+  properties: ["status"]
+});
+
 //
 "use strict";
 
