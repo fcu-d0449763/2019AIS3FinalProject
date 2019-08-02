@@ -1,4 +1,4 @@
-var port = browser.runtime.connect({ name: "panel" });
+var port = browser.runtime.connect({name: "panel"});
 var tabId = browser.devtools.inspectedWindow.tabId;
 var input, output, type, comment;
 var MD5 = new Hashes.MD5;
@@ -113,3 +113,26 @@ function caesarCipher(str, num) {
     return newString.join('')
 
 }
+
+port.onMessage.addListener(message => {
+    switch (message.action) {
+        case "sendComment":
+            comment.append(
+                $("<div>", {class: "item"}).append(
+                    $("<div>", {class: "content"}).text(message.text)
+                )
+            );
+            break;
+    }
+});
+
+port.postMessage({
+    action: "init",
+    tabId: tabId
+});
+
+port.postMessage({
+    action: "getComment",
+    target: "content",
+    tabId: tabId
+});

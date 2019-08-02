@@ -111,7 +111,7 @@ $('.payload-select').change(e=>{
     const ps = payloads[id][value];
     for(let i in ps){
         let msg = $('<div class="ui olive message payload-message"></div>');
-        let pay = $('<div class="payload"></div>').innerHTML = ps[i];
+        let pay = $('<div class="payload"></div>').text(ps[i]);
         let co = $('<div class="ui icon button copy-button" data-tooltip="COPY"><i class="copy outline icon"></i></div>');
         co.click(()=>{
             copy(ps[i]);
