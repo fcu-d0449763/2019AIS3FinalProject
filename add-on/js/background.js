@@ -21,43 +21,69 @@ loader_port.onMessage.addListener((response) => {
 });
 
 // recive message from port
-browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    if (message === "bfac") {
+browser.runtime.onMessage.addListener((message_json, sender, sendResponse) => {
+    let message = JSON.parse(message_json);
+    if (message.mode === "bfac") {
         browser.tabs.query({currentWindow: true, active: true}).then(([tabinfo]) => {
             let request = {
-                "mode": message,
+                "mode": message.mode,
                 "sender": sender.contextId,
                 "body": tabinfo.url
             }
             console.log(JSON.stringify(request));
             loader_port.postMessage(JSON.stringify(request));
         });
-    } else if (message === "sublist3r") {
+    } else if (message.mode === "sublist3r") {
         browser.tabs.query({currentWindow: true, active: true}).then(([tabinfo]) => {
             let url = tabinfo.url.split(":")[1].split("/").filter(i => i)[0]
             let request = {
-                "mode": message,
+                "mode": message.mode,
                 "sender": sender.contextId,
                 "body": url
             }
             console.log(JSON.stringify(request));
             loader_port.postMessage(JSON.stringify(request));
         });
-    } else if (message === "dirsearch") {
+    } else if (message.mode === "dirsearch") {
         browser.tabs.query({currentWindow: true, active: true}).then(([tabinfo]) => {
             let url_component = tabinfo.url.split("/");
             url_component.pop();
             let url = url_component.join("/");
             let request = {
-                "mode": message,
+                "mode": message.mode,
                 "sender": sender.contextId,
                 "body": url
             }
             console.log(JSON.stringify(request));
             loader_port.postMessage(JSON.stringify(request));
         });
+    } else if (message.mode === "GET") {
+        browser.tabs.query({currentWindow: true, active: true}).then(([tabinfo]) => {
+            var updating = browser.tabs.update(
+                tabinfo.id,
+                {url: message.url}
+            ).then(null, null);
+        });
+    } else if (message.mode === "POST") {
+        // console.log(message);
+        browser.tabs.query({ currentWindow: true, active: true }).then(([tabinfo]) => {
+            // console.logo(tabinfo);
+            console.log(tabinfo);
+            console.log(connections);
+            connections[tabinfo.id]["content"].postMessage({
+                action: "POST",
+                url: message.url,
+                body: message.body
+            });
+        });
+    } else if (message.mode === "GET_URL") {
+        browser.tabs.query({ currentWindow: true, active: true }).then(([tabinfo]) => {
+            ports[sender.contextId].postMessage(JSON.stringify({mode:"GET_URL", url:tabinfo.url}));
+        });
     }
 })
+
+
 
 var connections = {};
 
@@ -117,7 +143,7 @@ browser.tabs.onUpdated.addListener((tabId, changeInfo, tabInfo) => {
 
 let config;
 let started = 'off';
-let debug_mode = false;
+let debug_mode = true;
 const isChrome = (navigator.userAgent.toLowerCase().indexOf("chrome") !== -1);
 
 loadFromBrowserStorage(['config', 'started'], function (result) {
@@ -126,12 +152,12 @@ loadFromBrowserStorage(['config', 'started'], function (result) {
   if (result.config === undefined) loadConfigurationFromLocalStorage();
   else {
     started = result.started;
-    config = JSON.parse(result.config);
+    config = JSON.parse(result.config); 
   }
 
   if (started === 'on') {
     addListener();
-    chrome.browserAction.setIcon({ path: 'icons/modify-green-32.png' });
+    // chrome.browserAction.setIcon({ path: 'icons/modify-green-32.png' });
   }
   else if (started !== 'off') {
     started = 'off';
@@ -303,10 +329,13 @@ function rewriteResponseHeader(e) {
 *
 **/
 function notify(message) {
+  console.log("reload");
   if (message === "reload") {
+    console.log("test");
     if (config.debug_mode) log("Reload configuration");
     loadFromBrowserStorage(['config'], function (result) {
       config = JSON.parse(result.config);
+      console.log(config);
       if (started === "on") {
         removeListener();
         addListener();
@@ -315,13 +344,13 @@ function notify(message) {
   }
   else if (message === "off") {
     removeListener();
-    chrome.browserAction.setIcon({ path: "icons/modify-32.png" });
+    // chrome.browserAction.setIcon({ path: "icons/modify-32.png" });
     started = "off";
     if (config.debug_mode) log("Stop modifying headers");
   }
   else if (message === "on") {
     addListener();
-    chrome.browserAction.setIcon({ path: "icons/modify-green-32.png" });
+    // chrome.browserAction.setIcon({ path: "icons/modify-green-32.png" });
     started = "on";
     if (config.debug_mode) log("Start modifying headers");
   }

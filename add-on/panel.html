@@ -22,16 +22,17 @@
         <div id="url-container">
             <div class="ui labeled input icon action fluid">
                 <div class="ui dropdown label">
-                    <div class="text">GET</div>
+                    <div id="method" class="text">GET</div>
                     <i class="dropdown icon"></i>
                     <div class="menu">
                     <div class="item">GET</div>
                     <div class="item">POST</div>
                     </div>
                 </div>
-                <input type="text" placeholder="URL">
-                <i class="x icon link icon" style="margin-right: 5em"></i>
-                <button class="ui button primary">Send</button>
+                <input id="url" type="text" placeholder="URL">
+                <i id="clear" class="x icon link icon" style="margin-right: 5em"></i>
+                <button id="load" class="ui button primary">Load</button>
+                <button id="send" class="ui button primary" style="display:none">Send</button>
             </div>
         </div>
         <div class="ui accordion">
@@ -88,7 +89,7 @@
                 Body
             </div>
             <div class="content field transition hidden">
-                <textarea rows="8"></textarea>
+                <textarea id="body" rows="8"></textarea>
             </div>
         </div>
     </div>
