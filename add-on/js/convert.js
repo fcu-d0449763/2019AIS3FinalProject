@@ -1,4 +1,4 @@
-var port = browser.runtime.connect({name: "panel"});
+var port = browser.runtime.connect({ name: "panel" });
 var tabId = browser.devtools.inspectedWindow.tabId;
 var input, output, type, comment;
 var MD5 = new Hashes.MD5;
@@ -74,10 +74,10 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-function rotall(s){
+function rotall(s) {
     text = ''
-    for (var i =1;i<27;i++){
-        text += 'ROT'+i+':' + caesarCipher(s,i) + '\n'
+    for (var i = 1; i < 27; i++) {
+        text += 'ROT' + i + ':' + caesarCipher(s, i) + '\n'
     }
     return text
 }
@@ -118,8 +118,8 @@ port.onMessage.addListener(message => {
     switch (message.action) {
         case "sendComment":
             comment.append(
-                $("<div>", {class: "item"}).append(
-                    $("<div>", {class: "content"}).text(message.text)
+                $("<div>", { class: "item" }).append(
+                    $("<div>", { class: "content" }).text(message.text)
                 )
             );
             break;

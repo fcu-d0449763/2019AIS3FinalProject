@@ -69,13 +69,11 @@ def remove_ansi_escape(text):
 
 
 while True:
-    # message = get_message()
-    # message = '{"mode":"dirsearch","sender":137438953521,"body":"http://example.com"}'
-    message = '{"mode":"sublist3r","sender":137438953521,"body":"www.mozilla.org"}'
+    message = get_message()
     request = json.loads(message)
     if request['mode'] == "bfac":
         try:
-            result = subprocess.check_output(["./bfac/bfac", "-u", request['body'], "-level", "353535353"])
+            result = subprocess.check_output(["./bfac/bfac", "-u", request['body'], "-level", "1"])
             response = {
                 "mode" : request['mode'],
                 "sender" : request['sender'],
@@ -100,14 +98,14 @@ while True:
             result = subprocess.check_output([
                 "dirsearch/dirsearch.py", "-u",
                 request['body'], "-w", "dirsearch/db/dicc.txt",
-                "--random-agents", "-e", "php,asp,html"])
-            # print(result)
+                "--random-agents", "-e", "php,asp,html", "-b"])
+            print(result)
             response = {
                 "mode" : request['mode'],
                 "sender" : request['sender'],
                 "body": parse_dirsearch(result)
             }
-            # print(response)
+            print(response)
             send_message(encode_message(json.dumps(response)))
         except Exception as e:
             send_message(encode_message("ERROR"))

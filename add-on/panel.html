@@ -9,9 +9,6 @@
     <script src="js/semanticUI/jquery-3.1.1.min.js" ></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
     <script src="js/semanticUI/semantic.min.js" ></script>
-    <link rel="stylesheet" type="text/css" href="css/config.css">
-	<link rel="stylesheet" media="screen and (max-width: 1200px) and (min-width: 1001px)" href="css/config_medium_screen.css" />
-	<link rel="stylesheet" media="screen and (max-width: 1000px)" href="css/config_small_screen.css" />
 </head>
 <body>
     <div class="ui top attached tabular menu">
@@ -19,7 +16,6 @@
         <a class="item" data-tab="Convert">Convert</a>
         <a class="item" data-tab="Payloads">Payloads</a>
         <a class="item" data-tab="Tools">Tools</a>
-        <a class="item" data-tab="Header Modifier">Header Modifier</a>
         <a class="item" data-tab="Show All Comment">Show All Comment</a>
     </div>
     <div class="ui bottom attached tab segment form colflex active" data-tab="Request">
@@ -38,7 +34,6 @@
                 <button id="load" class="ui button primary">Load</button>
                 <button id="send" class="ui button primary" style="display:none">Send</button>
             </div>
-            
         </div>
         <!-- <div class="ui accordion">
             <div class="title">
@@ -46,7 +41,46 @@
                 Header
             </div>
             <div class="content field transition hidden">
-                <textarea rows="8"></textarea>
+                <div id="header-content"></div>
+                <button id="save_button" class="ui inverted button violet header-button">Save</button>
+                <button id="add_button" class="ui inverted button primary header-button">New</button>
+            </div>
+            <div class="header-container" id="header-template">
+                <div class="ui toggle checkbox status_toggle">
+                    <input type="checkbox" name="public" >
+                    <label></label>
+                </div>
+                <div class="ui selection dropdown header-select">
+                    <i class="dropdown icon"></i>
+                    <div class="text action">add</div>
+                    <div class="menu">
+                        <div class="item">add</div>
+                        <div class="item">modify</div>
+                        <div class="item">delete</div>
+                    </div>
+                </div>
+                <div class="header-field">
+                    <div class="input labeled ui"><div class="ui label">Name</div><input type="text" class="header_name" placeholder="Header Name"></div>
+                </div>
+                <i class="caret right icon"></i>
+                <div class="header-field">
+                    <div class="input labeled ui"><div class="ui label">Value</div><input type="text" class="header_value" placeholder="Header Value"></div>
+                </div>
+                <div class="header-field">
+                    <div class="input ui"><input type="text" class="comment" placeholder="Comment.."></div>
+                </div>
+                <div class="ui selection dropdown header-select">
+                    <i class="dropdown icon"></i>
+                    <div class="text apply_on">Request</div>
+                    <div class="menu">
+                        <div class="item">Request</div>
+                        <div class="item">Response</div>
+                    </div>
+                </div>
+                
+                <button class="circular ui icon button primary delete_button">
+                    <i class="icon x"></i>
+                </button>
             </div>
         </div> -->
         <div class="ui accordion">
@@ -113,103 +147,14 @@
         </div>
         <textarea id="tool-output" class="tool-text textarea"></textarea>
     </div>
-    <div class="ui bottom attached tab segment" data-tab="Header Modifier">
-
-        <div class="container">
-
-            <!-- MAIN SCREEN  --> 
-            <div id="main_screen" style="text-align:center">		
-
-                    <table class="standard_table">
-                        <tr>
-                            <td>                                    <div id ="status" ></div>
-                                <input type="button" class="button" style="width:100px"  id="start_stop" value="Change" ></td>
-                            <td style="text-align:left" > <strong> Url Patterns* : </strong> <input id="targetPage"  class="form_control input_url" type="text" value=""> </td>
-                            <!-- <td style="text-align:right"> 
-                                <a href="#" id="export_button" class="btn btn-primary btn-sm" >
-                                            <span class="glyphicon glyphicon-export"></span> Export
-                                    </a> 
-                                <a href="#" id="import_button" class="btn btn-primary btn-sm" >
-                                            <span class="glyphicon glyphicon-import"></span> Import
-                                    </a>
-                                <a href="#" id="parameters_button" class="btn btn-primary btn-sm"> 
-                                            <span class="glyphicon glyphicon-cog"></span> Parameters
-                                    </a>  
-                            </td> -->
-                        </tr>
-                    </table>
-                    <br/> <br/>
-        
-                        <table id="table_config" class="table table-condensed " > 
-                        <thead>
-                            <tr id="config_table_head">
-                                <th> When URL contains </th>
-                                <th> Action </th>		
-                                <th> Header Field Name </th>
-                                <th> Header Field Value </th>
-                                <th> Comment </th>
-                                <th> Apply on </th>
-                                <th> Status </th>
-                                <th> </th>
-                                <th> </th>
-                                <th> </th>
-                            </tr>
-                        </thead>
-                        <tbody id="config_tab">
-                        </tbody>
-                        </table>
-                    <table class="standard_table"> <tr><td style="text-align:center">
-                        <a href="#" id="add_button" class="btn btn-primary btn-sm" style="width:100px">
-                                <span class="glyphicon glyphicon-plus"></span> New line
-                            </a> 
-                        <a href="#" id="save_button" class="btn btn-primary btn-sm" style="width:100px">
-                                    <span class="glyphicon glyphicon-save"></span> Save
-                            </a> 
-                    </td></tr></table>
-                
-                <br/>
-        
-        
-
-        
-            </div>
-        
-            <!-- PARAMETERS SCREEN -->
-            <div id="parameters_screen" hidden>
-                <h2 class="title"> SIMPLE MODIFY HEADERS  </h2> 
-            
-                <strong> Parameters : </strong>
-                <br/>
-                <br/>
-                <input type="checkbox" id="debug_mode"> Debug mode </input>
-                <br/>
-                <input type="checkbox" id="show_comments"> Show comments </input>
-                <br/>
-                <input type="checkbox" id="use_url_contains"> Filter URL per rules  </input>
-                <br/>
-                <br/>
-                <a href="#" id="exit_parameters_screen_button" class="btn btn-primary btn-sm" style="width:100px">
-                        <span class="glyphicon glyphicon-step-backward"></span> Back
-                    </a> 
-        
-            </div>
-        
-        
-        
-            <iframe id="download" title="hidden_download_frame" width="0" height="0" style="border:none;"> 
-            </iframe>
-            <br/>
-            <script type="text/javascript" src="js/config.js"> </script>
-        </div>
-
-
-    </div>
+    
     <div class="ui bottom attached tab segment" data-tab="Show All Comment">
         <div id="comment" class="ui middle aligned divided list"></div>
     </div>
 
     <script src="js/convert.js"></script>
     <script src="js/payload.js"></script>
+    <script src="js/header.js"></script>
     <script src="js/panel.js"></script>
     <script src="plugins/loader.js"></script>
 </body>

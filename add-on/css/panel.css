@@ -24,6 +24,30 @@ body{
     flex-direction: column;
 }
 
+#header-template{
+    display: none !important;
+}
+
+.header-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.header-button{
+    float: right;
+    margin-top: 1em !important;
+    margin-left: 1em !important;
+}
+.header-field{
+    margin:6px;
+}
+
+.header-select{
+    min-width: 120px !important;
+    margin:6px;
+}
+
 .convert-text-container{
     min-height: initial !important;
     flex-grow: 1;
