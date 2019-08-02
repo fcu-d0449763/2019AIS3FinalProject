@@ -3,13 +3,6 @@ $('.ui.dropdown').dropdown();
 //$('#convertdropdown').dropdown('set selected', 'md5');
 $('.ui.accordion').accordion();
 
-function getComment() {
-    port.postMessage({
-        action: "getComment",
-        target: "content",
-        tabId: tabId
-    });
-}
 
 
 port.onMessage.addListener(message => {
