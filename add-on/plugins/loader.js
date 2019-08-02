@@ -7,6 +7,7 @@ document.querySelector("#tool").addEventListener("change", () => {
     let message = {
         "mode" : mode
     };
+    loading();
     browser.runtime.sendMessage(JSON.stringify(message));
 });
 
@@ -29,4 +30,14 @@ document.getElementById("load").addEventListener("click", () => {
         "mode": "GET_URL"
     };
     browser.runtime.sendMessage(JSON.stringify(message));
+    finish();
 });
+
+function loading(){
+    $('.tool-text-container').append($('<div class="ui active loader tool-text-loader"></div>'));
+    $('.tool-select').addClass('disabled');
+}
+function finish(){
+    $('.tool-text-loader').remove();
+    $('.tool-select').removeClass('disabled');
+}

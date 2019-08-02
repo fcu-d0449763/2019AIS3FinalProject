@@ -16,7 +16,7 @@ body{
 
 .tab.segment{
     flex-grow: 1;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
 }
 .tab.segment.active.colflex{
@@ -62,6 +62,12 @@ body{
 .convert-text-container .grid>.column{
     flex-grow: 1;
     display: flex !important;
+}
+
+.tool-text-container{
+    display: flex;
+    flex-grow: 1;
+    margin-top: 0 !important;
 }
 
 .copy-button{
