@@ -1,6 +1,6 @@
 var port = browser.runtime.connect({name: "panel"});
 var tabId = browser.devtools.inspectedWindow.tabId;
-var input, output, type;
+var input, output, type, comment;
 var MD5 = new Hashes.MD5;
 var SHA1 = new Hashes.SHA1;
 var SHA256 = new Hashes.SHA256;
@@ -63,6 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     input = document.querySelector("#input");
     output = document.querySelector("#output");
     type = document.querySelector("#convert");
+    comment = $("#comment");
     input.addEventListener("keyup", convert);
     type.addEventListener("change", convert);
 });
@@ -75,7 +76,11 @@ $('.ui.accordion').accordion();
 port.onMessage.addListener(message => {
     switch (message.action) {
         case "sendComment":
-            document.querySelector("#comment").textContent += message.text;
+            comment.append(
+                $("<div>", {class: "item"}).append(
+                    $("<div>", {class: "content"}).text(message.text)
+                )
+            );
             break;
     }
 });
