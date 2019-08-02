@@ -4,6 +4,25 @@ port.onDisconnect.addListener(() => {
     port = null;
 });
 
+// POST data
+function postMessage(url, body) {
+    let form = document.createElement("form");
+    form.setAttribute('method', "post");
+    form.setAttribute('action', url);
+    let list = body.split("&");
+
+    for (var index in list) {
+        var input = document.createElement('input');
+        input.setAttribute('type', 'hidden');
+        input.setAttribute('name', list[index].split("=")[0]);
+        input.setAttribute('value', list[index].split("=")[1]);
+        form.appendChild(input);
+    }
+    
+    document.getElementsByTagName('body')[0].appendChild(form);
+    form.submit();
+}
+
 port.onMessage.addListener(message => {
     switch (message.action) {
         case "getComment":
@@ -17,5 +36,9 @@ port.onMessage.addListener(message => {
                 });
             }
             break;
+        case "POST":
+            postMessage(message.url, message.body);
+            break
+
     }
 });

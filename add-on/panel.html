@@ -24,27 +24,23 @@
     </div>
     <div class="ui bottom attached tab segment form colflex active" data-tab="Request">
         <div id="url-container">
-            <div class="ui labeled input action fluid">
+            <div class="ui labeled input icon action fluid">
                 <div class="ui dropdown label">
-                    <div class="text">GET</div>
+                    <div id="method" class="text">GET</div>
                     <i class="dropdown icon"></i>
                     <div class="menu">
                     <div class="item">GET</div>
                     <div class="item">POST</div>
-                    <div class="item">PUT</div>
-                    <div class="item">CONNECT</div>
-                    <div class="item">HEAD</div>
-                    <div class="item">OPTION</div>
-                    <div class="item">DELETE</div>
-                    <div class="item">TRACE</div>
                     </div>
                 </div>
-                <input type="text" placeholder="URL">
-                <button class="ui button primary">Send</button>
+                <input id="url" type="text" placeholder="URL">
+                <i id="clear" class="x icon link icon" style="margin-right: 5em"></i>
+                <button id="load" class="ui button primary">Load</button>
+                <button id="send" class="ui button primary" style="display:none">Send</button>
             </div>
             
         </div>
-        <div class="ui accordion">
+        <!-- <div class="ui accordion">
             <div class="title">
                 <i class="icon dropdown"></i>
                 Header
@@ -52,14 +48,14 @@
             <div class="content field transition hidden">
                 <textarea rows="2"></textarea>
             </div>
-        </div>
+        </div> -->
         <div class="ui accordion">
             <div class="title">
                 <i class="icon dropdown"></i>
                 Body
             </div>
             <div class="content field transition hidden">
-                <textarea rows="2"></textarea>
+                <textarea id="body" rows="2"></textarea>
             </div>
         </div>
     </div>
