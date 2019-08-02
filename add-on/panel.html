@@ -18,6 +18,7 @@
         <a class="item" data-tab="Tools">Tools</a>
         <a class="item" data-tab="Header Modifier">Header Modifier</a>
         <a class="item" data-tab="Cookie Modifier">Cookie Modifier</a>
+        <a class="item" data-tab="Show All Comment">Show All Comment</a>
     </div>
     <div class="ui bottom attached tab segment form active" data-tab="Request">
         <div id="url-container">
@@ -63,7 +64,7 @@
 
     <div class="ui bottom attached tab segment form" data-tab="Convert">
         <div class="field">
-            <div class="ui selection dropdown">
+            <div class="ui selection dropdown" id="convertdropdown">
                 <input type="hidden" name="convert" id="convert">
                 <i class="dropdown icon"></i>
                 <div class="default text">method</div>
@@ -120,7 +121,9 @@
     <div class="ui bottom attached tab segment" data-tab="Cookie Modifier">
         Cookie Modifier
     </div>
-    
+    <div class="ui bottom attached tab segment" data-tab="Show All Comment">
+        <span id="comment"></span>
+    </div>
 
     <script src="js/panel.js"></script>
     <script src="plugins/loader.js"></script>
