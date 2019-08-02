@@ -23,7 +23,7 @@ functions = {
     "urlencode": function(s) {
         return encodeURIComponent(s);
     },
-    "urldncode": function(s) {
+    "urldecode": function(s) {
         return decodeURIComponent(s);
     },
     "ascii2hex": function(s) {
@@ -48,7 +48,14 @@ functions = {
             result.push(s.charCodeAt(i));
         }
         return result;
-    }
+      },
+      "toUpper":function(s){
+        return s.toString().toUpperCase();
+      },
+      "toLower":function(s){
+        return s.toString().toLowerCase();
+      }
+
 }
 function convert(event) {
     output.value = functions[type.value](input.value);
