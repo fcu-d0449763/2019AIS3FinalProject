@@ -133,7 +133,7 @@
     </div>
     <div class="ui bottom attached tab segment form colflex" data-tab="Tools">
         <div class="field">
-            <div class="ui selection dropdown">
+            <div class="ui selection dropdown tool-select">
                 <input type="hidden" name="tool" id="tool">
                 <i class="dropdown icon"></i>
                 <div class="default text">tool</div>
@@ -144,7 +144,9 @@
                 </div>
             </div>
         </div>
-        <textarea id="tool-output" class="tool-text textarea"></textarea>
+        <div class="ui segment tool-text-container">
+            <textarea id="tool-output" class="tool-text textarea"></textarea>
+        </div>
     </div>
     
     <div class="ui bottom attached tab segment" data-tab="Show All Comment">
