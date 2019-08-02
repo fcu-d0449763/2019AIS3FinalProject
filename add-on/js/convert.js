@@ -1,3 +1,4 @@
+
 var port = browser.runtime.connect({name: "panel"});
 var tabId = browser.devtools.inspectedWindow.tabId;
 var input, output, type, comment;
@@ -66,4 +67,27 @@ document.addEventListener("DOMContentLoaded", () => {
     comment = $("#comment");
     input.addEventListener("keyup", convert);
     type.addEventListener("change", convert);
+});
+
+port.onMessage.addListener(message => {
+    switch (message.action) {
+        case "sendComment":
+            comment.append(
+                $("<div>", {class: "item"}).append(
+                    $("<div>", {class: "content"}).text(message.text)
+                )
+            );
+            break;
+    }
+});
+
+port.postMessage({
+    action: "init",
+    tabId: tabId
+});
+
+port.postMessage({
+    action: "getComment",
+    target: "content",
+    tabId: tabId
 });
