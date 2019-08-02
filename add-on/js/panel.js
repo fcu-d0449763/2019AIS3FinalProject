@@ -55,7 +55,6 @@ functions = {
       "toLower":function(s){
         return s.toString().toLowerCase();
       }
-
 }
 function convert(event) {
     output.value = functions[type.value](input.value);
