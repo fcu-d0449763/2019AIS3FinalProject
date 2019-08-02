@@ -42,6 +42,10 @@
     "permissions": [
         "nativeMessaging",
         "tabs",
-        "activeTab"
+        "activeTab",
+        "storage",
+        "webRequest",
+        "webRequestBlocking",
+        "<all_urls>"
     ]
 }
