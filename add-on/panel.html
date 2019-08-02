@@ -17,9 +17,8 @@
         <a class="item" data-tab="Payloads">Payloads</a>
         <a class="item" data-tab="Tools">Tools</a>
         <a class="item" data-tab="Header Modifier">Header Modifier</a>
-        <a class="item" data-tab="Cookie Modifier">Cookie Modifier</a>
     </div>
-    <div class="ui bottom attached tab segment form active" data-tab="Request">
+    <div class="ui bottom attached tab segment form colflex active" data-tab="Request">
         <div id="url-container">
             <div class="ui labeled input action fluid">
                 <div class="ui dropdown label">
@@ -61,7 +60,7 @@
         </div>
     </div>
 
-    <div class="ui bottom attached tab segment form" data-tab="Convert">
+    <div class="ui bottom attached tab segment form colflex" data-tab="Convert">
         <div class="field">
             <div class="ui selection dropdown">
                 <input type="hidden" name="convert" id="convert">
@@ -74,7 +73,7 @@
                     <div class="item" data-value="base64encode">base64encode</div>
                     <div class="item" data-value="base64decode">base64decode</div>
                     <div class="item" data-value="urlencode">urlencode</div>
-                    <div class="item" data-value="urldncode">urldncode</div>
+                    <div class="item" data-value="urldecode">urldecode</div>
                 </div>
             </div>
         </div>
@@ -84,18 +83,19 @@
                     <i class="angle double right icon"></i>
                 </div>
                 <div class="column">
-                    <textarea id="input" class="convert-text"></textarea>
+                    <textarea id="input" class="convert-text textarea"></textarea>
                 </div>
                 <div class="column">
-                    <textarea id="output" class="convert-text"></textarea>
+                    <textarea id="output" class="convert-text textarea"></textarea>
                 </div>
             </div>
         </div>
     </div>
-    <div class="ui bottom attached tab segment form" data-tab="Payloads">
-        Payloads
+    <div class="ui bottom attached tab segment form rowflex" data-tab="Payloads">
+        <div id="payload-select-container"></div>
+        <div id="payload-container"></div>
     </div>
-    <div class="ui bottom attached tab segment form" data-tab="Tools">
+    <div class="ui bottom attached tab segment form colflex" data-tab="Tools">
         <div class="field">
             <div class="ui selection dropdown">
                 <input type="hidden" name="tool">
@@ -107,16 +107,15 @@
                 </div>
             </div>
         </div>
-        <textarea class="tool-text"></textarea>
+        <textarea class="tool-text textarea"></textarea>
     </div>
     <div class="ui bottom attached tab segment" data-tab="Header Modifier">
         Header Modifier
     </div>
-    <div class="ui bottom attached tab segment" data-tab="Cookie Modifier">
-        Cookie Modifier
-    </div>
     
 
+    <script src="js/convert.js"></script>
+    <script src="js/payload.js"></script>
     <script src="js/panel.js"></script>
     <script src="plugins/loader.js"></script>
 </body>

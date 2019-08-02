@@ -4,20 +4,22 @@ body{
     flex-direction: column;
 }
 
+.textarea{
+    min-width: initial !important;
+    min-height: initial !important;
+    max-width: initial !important;
+    max-height: initial !important;
+    height: initial !important;
+    flex-grow: 1;
+    resize: none !important;
+}
+
 .tab.segment{
     flex-grow: 1;
 }
-.tab.segment.active{
+.tab.segment.active.colflex{
     display:flex !important;
     flex-direction: column;
-}
-
-.convert-text{
-    max-width: initial !important;
-    max-height: initial !important;
-    resize: none !important;
-    flex-grow: 1;
-    height: initial !important;
 }
 
 .convert-text-container{
@@ -36,7 +38,24 @@ body{
     display: flex !important;
 }
 
-.tool-text{
-    flex-grow: 1;
-    resize: none !important;
+.copy-button{
+    background: transparent !important;
+    align-self: flex-start;
+}
+
+.payload-message{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+.payload{
+    display: inline-flex;
+    align-items: center;
+}
+
+.payload-select{
+    margin-right: 1em;
+    margin-bottom: 1em;
 }
