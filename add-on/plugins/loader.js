@@ -19,8 +19,10 @@ portToBackground.onMessage.addListener(message => {
         document.getElementById("send").style.removeProperty("display");
         document.getElementById("load").style.display = "none";
     }
-    else 
+    else {
+        finish();
         document.getElementById("tool-output").value = response.body;
+    }
 });
 
 
@@ -34,6 +36,7 @@ document.getElementById("load").addEventListener("click", () => {
 });
 
 function loading(){
+    $('#tool-output').text("");
     $('.tool-text-container').append($('<div class="ui active loader tool-text-loader"></div>'));
     $('.tool-select').addClass('disabled');
 }
