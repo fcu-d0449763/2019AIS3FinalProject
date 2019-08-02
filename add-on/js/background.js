@@ -168,7 +168,7 @@ function loadConfigurationFromLocalStorage() {
       console.log("Load default config");
       let headers = [];
       headers.push({ url_contains: "", action: "add", header_name: "test-header-name", header_value: "test-header-value", comment: "test", apply_on: "req", status: "on" });
-      config = { format_version: "1.1", target_page: "https://httpbin.org/*", headers: headers, debug_mode: false, use_url_contains: false };
+      config = { format_version: "1.1", target_page: "*", headers: headers, debug_mode: false, use_url_contains: false };
     }
   }
   storeInBrowserStorage({ config: JSON.stringify(config) });
