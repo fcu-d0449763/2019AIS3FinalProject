@@ -1,0 +1,9 @@
+/* *{
+    border: red solid 5px;
+} */
+
+body{
+    border: solid 10px transparent;
+    min-width: initial !important;
+    width: 24em;
+}
