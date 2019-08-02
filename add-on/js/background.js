@@ -367,11 +367,3 @@ function removeListener() {
   chrome.webRequest.onBeforeSendHeaders.removeListener(rewriteRequestHeader);
   chrome.webRequest.onHeadersReceived.removeListener(rewriteResponseHeader);
 }
-
-chrome.commands.onCommand.addListener(function(command) {  
-    console.log('Command:', command);  
-    if(command == "test" ){  
-        console.log('Command:', command);     
-    }  
-
-});

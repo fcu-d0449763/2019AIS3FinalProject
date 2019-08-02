@@ -61,3 +61,7 @@ body{
     margin-right: 1em;
     margin-bottom: 1em;
 }
+
+#input, #output{
+    font-family: monospace;
+}
