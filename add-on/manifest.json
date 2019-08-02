@@ -47,5 +47,24 @@
         "webRequest",
         "webRequestBlocking",
         "<all_urls>"
-    ]
+    ],
+    "commands": {
+
+        "_execute_browser_action": {
+          "suggested_key": {
+            "default": "Ctrl+Shift+F",
+            "mac": "MacCtrl+Shift+F"
+          }
+        },
+        "_execute_page_action":{
+            "suggested_key": {
+                "default": "Ctrl+Shift+C",
+                "mac": "MacCtrl+Shift+C"
+              }
+        },
+
+
+
+
+      }
 }
