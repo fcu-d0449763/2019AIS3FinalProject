@@ -75,7 +75,7 @@ while True:
     request = json.loads(message)
     if request['mode'] == "bfac":
         try:
-            result = subprocess.check_output(["./bfac/bfac", "-u", request['body'], "-level", "1"])
+            result = subprocess.check_output(["./bfac/bfac", "-u", request['body'], "-level", "3"])
             response = {
                 "mode" : request['mode'],
                 "sender" : request['sender'],
