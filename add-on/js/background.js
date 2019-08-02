@@ -20,11 +20,9 @@ loader_port.onMessage.addListener((response) => {
     }
 });
 
-
 // recive message from port
 browser.runtime.onMessage.addListener((message_json, sender, sendResponse) => {
     let message = JSON.parse(message_json);
-    console.log(message);
     if (message.mode === "bfac") {
         browser.tabs.query({currentWindow: true, active: true}).then(([tabinfo]) => {
             let request = {
@@ -145,7 +143,7 @@ browser.tabs.onUpdated.addListener((tabId, changeInfo, tabInfo) => {
 
 let config;
 let started = 'off';
-let debug_mode = false;
+let debug_mode = true;
 const isChrome = (navigator.userAgent.toLowerCase().indexOf("chrome") !== -1);
 
 loadFromBrowserStorage(['config', 'started'], function (result) {
@@ -154,7 +152,7 @@ loadFromBrowserStorage(['config', 'started'], function (result) {
   if (result.config === undefined) loadConfigurationFromLocalStorage();
   else {
     started = result.started;
-    config = JSON.parse(result.config);
+    config = JSON.parse(result.config); 
   }
 
   if (started === 'on') {
@@ -331,10 +329,13 @@ function rewriteResponseHeader(e) {
 *
 **/
 function notify(message) {
+  console.log("reload");
   if (message === "reload") {
+    console.log("test");
     if (config.debug_mode) log("Reload configuration");
     loadFromBrowserStorage(['config'], function (result) {
       config = JSON.parse(result.config);
+      console.log(config);
       if (started === "on") {
         removeListener();
         addListener();
