@@ -36,7 +36,7 @@ document.getElementById("load").addEventListener("click", () => {
 });
 
 function loading(){
-    $('#tool-output').text("");
+    $('#tool-output').val("");
     $('.tool-text-container').append($('<div class="ui active loader tool-text-loader"></div>'));
     $('.tool-select').addClass('disabled');
 }

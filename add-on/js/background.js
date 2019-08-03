@@ -329,17 +329,12 @@ function rewriteResponseHeader(e) {
 *
 **/
 function notify(message) {
-  console.log("reload");
   if (message === "reload") {
-    console.log("test");
     if (config.debug_mode) log("Reload configuration");
     loadFromBrowserStorage(['config'], function (result) {
       config = JSON.parse(result.config);
-      console.log(config);
-      if (started === "on") {
-        removeListener();
-        addListener();
-      }
+      removeListener();
+      addListener();
     });
   }
   else if (message === "off") {
@@ -349,6 +344,7 @@ function notify(message) {
     if (config.debug_mode) log("Stop modifying headers");
   }
   else if (message === "on") {
+    console.log("message: on");
     addListener();
     // chrome.browserAction.setIcon({ path: "icons/modify-green-32.png" });
     started = "on";
@@ -377,6 +373,7 @@ function addListener() {
   }
 
   else {
+    console.log(target);
     chrome.webRequest.onBeforeSendHeaders.addListener(rewriteRequestHeader,
       { urls: target.split(";") },
       ["blocking", "requestHeaders"]);
