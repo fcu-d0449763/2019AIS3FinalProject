@@ -59,7 +59,7 @@
         "_execute_page_action":{
             "suggested_key": {
                 "default": "Ctrl+Shift+C",
-                "mac": "MacCtrl+Shift+C"
+                "mac": "MacCtrl+Shift+S"
               }
         }
 
